@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require("body-parser");
 var app = express();
+var request = require('request');
 
 var listofdates = {
     'January': 1, 
@@ -100,3 +101,10 @@ function timeConverter(UNIX_timestamp){
     var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec ;
     return time;
   }
+
+  var reqTimer = setTimeout(function wakeUp() {
+    request("https://unix-date-api.herokuapp.com/", function() {
+       console.log("WAKE UP DYNO");
+    });
+    return reqTimer = setTimeout(wakeUp, 1200000);
+ }, 1200000);
