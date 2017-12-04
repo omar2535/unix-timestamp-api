@@ -26,6 +26,9 @@ app.listen(port, function(){
     console.log("we are live on port: " + port);
 });
 
+app.get('/', function(req, res){
+    res.send("This is an API for unix tiem stamps");
+});
 app.get('/:date', function(req, res){
     var unix;
     var date;
