@@ -20,7 +20,7 @@ var listofdates = {
 
 app.use(bodyParser.urlencoded({ extended: true}));
 
-var port = 3000;
+var port = process.env.PORT | 3000;
 
 app.listen(port, function(){
     console.log("we are live on port: " + port);
